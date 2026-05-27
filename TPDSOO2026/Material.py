@@ -12,11 +12,6 @@ class Material(ABC):
     def marcar_disponible(self):
         self.disponible = True
 
-class libro(Material):
-    def __init__(self, id, titulo, autor,isbn):
-        super().__init__(id, titulo)
-        self.autor = autor
-        self.isbn = isbn
-        
+
 
 
