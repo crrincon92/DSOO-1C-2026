@@ -31,10 +31,10 @@ class Libro(Material):
 
 class Revista(Material):
 
-    def __init__(self, codigo: str, titulo: str, edicion: str):
-        super().__init__(codigo, titulo)
+    def __init__(self, id, titulo, edicion):
+        super().__init__(id, titulo)
         self.edicion = edicion
 
     def __str__(self):
         estado = "Disponible" if self.disponible else "Prestado"
-        return f"[Revista] [{self.codigo}] '{self.titulo}' (Ed. {self.edicion}) — {estado}"
+        return f"[Revista] [{self.id}] '{self.titulo}' (Ed. {self.edicion}) — {estado}"

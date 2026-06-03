@@ -1,6 +1,7 @@
 from datetime import date, timedelta
-from Socio import socio
-from Material import material
+from socio import Socio
+from material import Material
+
 
 class Prestamo:
     # cantidad de dias para prestar
