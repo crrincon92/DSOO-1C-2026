@@ -16,7 +16,7 @@ class Biblioteca:
 
     def agregar_material(self, material: Material) -> bool:
         if material.id in self.catalogo:
-            print(f"Ya existe un material con el código '{material.codigo}'.")
+            print(f"Ya existe un material con el código '{material.id}'.")
             return False
         self.catalogo[material.id] = material
         print(f"Material agregado: {material}")
@@ -32,9 +32,9 @@ class Biblioteca:
 
     # ---------- Préstamos y devoluciones ----------
 
-    def prestar_material(self, numero_socio, codigo_material) -> bool:
+    def prestar_material(self, numero_socio, id_material) -> bool:
         socio = self.socios.get(numero_socio)
-        material = self.catalogo.get(codigo_material)
+        material = self.catalogo.get(id_material)
 
         if not socio:
             print("Socio no encontrado.")
@@ -54,8 +54,8 @@ class Biblioteca:
         print(f"Préstamo registrado. Fecha de devolución: {nuevo_prestamo.fecha_vencimiento}")
         return True
 
-    def devolver_material(self, codigo_material) -> bool:
-        material = self.catalogo.get(codigo_material)
+    def devolver_material(self, id_material) -> bool:
+        material = self.catalogo.get(id_material)
 
         if not material:
             print("Código de material no encontrado.")
@@ -66,7 +66,7 @@ class Biblioteca:
 
         # Buscar el préstamo activo de ese material
         prestamo_activo = next(
-            (p for p in self.prestamos if p.material.codigo == codigo_material and p.fecha_devolucion_real is None),
+            (p for p in self.prestamos if p.material.id == id_material and p.fecha_devolucion_real is None),
             None
         )
 

@@ -26,7 +26,7 @@ class Libro(Material):
 
     def __str__(self):
         estado = "Disponible" if self.disponible else "Prestado"
-        return f"[Libro] [{self.id}] '{self.titulo}' - {self.autor} ({self.paginas} pág.) — {estado}"
+        return f"[Libro] [Codigo: {self.id}] 'Titúlo: {self.titulo}' -Autor: {self.autor} ({self.paginas} pág.) —Estado: {estado}"
 
 
 class Revista(Material):
@@ -37,4 +37,4 @@ class Revista(Material):
 
     def __str__(self):
         estado = "Disponible" if self.disponible else "Prestado"
-        return f"[Revista] [{self.id}] '{self.titulo}' (Ed. {self.edicion}) — {estado}"
+        return f"[Revista] [Codigo: {self.id}] 'Titúlo: {self.titulo}' (Ed. {self.edicion}) — Estado: {estado}"

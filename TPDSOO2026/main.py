@@ -75,13 +75,13 @@ def menu():
         elif opcion == "6":
             print("\n  -- Registrar Préstamo --")
             numero_socio    = input("  N° de socio: ").strip()
-            codigo_material = input("  Código del material: ").strip()
-            biblioteca.prestar_material(numero_socio, codigo_material)
+            id_material = input("  Código del material: ").strip()
+            biblioteca.prestar_material(numero_socio, id_material)
 
         elif opcion == "7":
             print("\n  -- Registrar Devolución --")
-            codigo_material = input("  Código del material: ").strip()
-            biblioteca.devolver_material(codigo_material)
+            id_material = input("  Código del material: ").strip()
+            biblioteca.devolver_material(id_material)
 
         elif opcion == "8":
             activos = biblioteca.prestamos_activos()

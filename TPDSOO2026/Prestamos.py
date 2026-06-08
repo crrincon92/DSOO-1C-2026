@@ -11,7 +11,7 @@ class Prestamo:
         self.socio = socio
         self.material = material
         self.fecha_salida = date.today()
-        self.fecha_vencimiento = date.today() + timedelta(dias=self.DIAS_PLAZO)
+        self.fecha_vencimiento = date.today() + timedelta(days=self.DIAS_PLAZO)
         self.fecha_devolucion_real = None
 
         # El material deja de estar disponible en el momento del préstamo
