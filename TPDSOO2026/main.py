@@ -105,7 +105,7 @@ def menu():
             numero = input("\n  N° de socio: ").strip()
             socio = biblioteca.socios.get(numero)
             if not socio:
-                print("  ✗ Socio no encontrado.")
+                print(" Socio no encontrado.")
             elif not socio.historial_prestamos:
                 print(f"  {socio.nombre} no tiene préstamos registrados.")
             else:
