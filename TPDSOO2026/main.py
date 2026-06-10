@@ -9,17 +9,17 @@ from biblioteca import Biblioteca
 def menu():
     biblioteca = Biblioteca("----Biblioteca DSOO----")
     #Datos de ejemplo para probar el sistema
-    biblioteca.agregar_material(Libro("L001", "El Aleph", "Jorge Luis Borges", 150))
-    biblioteca.agregar_material(Libro("L002", "Rayuela", "Julio Cortázar", 600))
-    biblioteca.agregar_material(Libro("L003", "El principito", "Saint-Exuperí", 110))
-    biblioteca.agregar_material(Libro("L004", "Cien años de soledad", "Gabriel García Marquez", 470))
-    biblioteca.agregar_material(Libro("L005", "Don Quijote de la Mancha", "Jorge Luis Borges", 1000))
-    biblioteca.agregar_material(Revista("R001", "National Geographic", "Marzo 2025"))
-    biblioteca.agregar_material(Revista("R002", "Revista Gente", "Abril 2025"))
-    biblioteca.agregar_material(Revista("R003", "Revista Caras", "Julio 2025"))
-    biblioteca.registrar_socio(Socio("S01", "Ana Gómez"))
-    biblioteca.registrar_socio(Socio("S02", "Carlos Pérez"))
-    biblioteca.registrar_socio(Socio("S03", "Juan Pérez"))
+    biblioteca.agregar_material(Libro( "El Aleph", "Jorge Luis Borges", 150))
+    biblioteca.agregar_material(Libro( "Rayuela", "Julio Cortázar", 600))
+    biblioteca.agregar_material(Libro( "El principito", "Saint-Exuperí", 110))
+    biblioteca.agregar_material(Libro( "Cien años de soledad", "Gabriel García Marquez", 470))
+    biblioteca.agregar_material(Libro( "Don Quijote de la Mancha", "Jorge Luis Borges", 1000))
+    biblioteca.agregar_material(Revista( "National Geographic", "Marzo 2025"))
+    biblioteca.agregar_material(Revista( "Revista Gente", "Abril 2025"))
+    biblioteca.agregar_material(Revista( "Revista Caras", "Julio 2025"))
+    biblioteca.registrar_socio(Socio( "Ana Gómez"))
+    biblioteca.registrar_socio(Socio( "Carlos Pérez"))
+    biblioteca.registrar_socio(Socio( "Juan Pérez"))
 
     opciones = {
         "1":  "Agregar Libro",
@@ -32,6 +32,7 @@ def menu():
         "8":  "Ver préstamos activos",
         "9":  "Ver préstamos vencidos",
         "10": "Ver historial de un socio",
+        "11": "Ver socios registrados",
         "0":  "Salir",
     }
 
@@ -47,7 +48,6 @@ def menu():
 
         if opcion == "1":
             print("\n  -- Nuevo Libro --")
-            id = input("  Id: ").strip()
             titulo = input("  Título: ").strip()
             autor  = input("  Autor: ").strip()
             try:
@@ -55,20 +55,18 @@ def menu():
             except ValueError:
                 print("Cantidad de páginas inválida. Se usará 0.")
                 paginas = 0
-            biblioteca.agregar_material(Libro(id, titulo, autor, paginas))
+            biblioteca.agregar_material(Libro( titulo, autor, paginas))
 
         elif opcion == "2":
             print("\n  -- Nueva Revista --")
-            id  = input("  ID: ").strip()
             titulo  = input("  Título: ").strip()
             edicion = input("  Edición: ").strip()
-            biblioteca.agregar_material(Revista(id, titulo, edicion))
+            biblioteca.agregar_material(Revista(titulo, edicion))
 
         elif opcion == "3":
             print("\n  -- Nuevo Socio --")
-            numero = input("  Número de socio: ").strip()
             nombre = input("  Nombre: ").strip()
-            biblioteca.registrar_socio(Socio(numero, nombre))
+            biblioteca.registrar_socio(Socio(nombre))
 
         elif opcion == "4":
             biblioteca.mostrar_catalogo()
@@ -123,6 +121,9 @@ def menu():
                 print(f"\n  Historial de {socio.nombre} ({len(socio.historial_prestamos)} préstamo(s)):")
                 for p in socio.historial_prestamos:
                     print(f"  • {p}")
+
+        elif opcion == "11":
+            biblioteca.mostrar_socios()
 
         elif opcion == "0":
             print("\n  Hasta luego.\n")

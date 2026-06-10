@@ -88,7 +88,7 @@ class Biblioteca:
         resultados = []
         for m in self.catalogo.values():
             coincide_titulo = criterio in m.titulo.lower()
-            coincide_tipo   = criterio == m.tipo().lower()
+            coincide_tipo   = criterio == m.tipo.lower()
             coincide_autor  = isinstance(m, Libro) and criterio in m.autor.lower()
 
             if coincide_titulo or coincide_tipo or coincide_autor:

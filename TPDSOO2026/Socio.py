@@ -1,9 +1,11 @@
 # el socio representa al usuario de una biblioteca
 
 class Socio:
+    contador = 0 
 
-    def __init__(self, numero_socio, nombre):
-        self.numero_socio = numero_socio
+    def __init__(self, nombre):
+        Socio.contador += 1
+        self.numero_socio = Socio.contador
         self.nombre = nombre
         self.habilitado = True
         self.historial_prestamos = []  # Guarda todos los préstamos que realizó

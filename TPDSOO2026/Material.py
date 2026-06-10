@@ -2,8 +2,11 @@ from abc import ABC, abstractmethod
 # Clase madre abstracta
 
 class Material(ABC):
-    def __init__(self, id, titulo):
-        self.id = id
+    contador = 0
+
+    def __init__(self, titulo):
+        Material.contador += 1 
+        self.id = Material.contador
         self.titulo = titulo
         self.disponible = True
 
@@ -18,8 +21,8 @@ class Material(ABC):
 
 class Libro(Material):
     
-    def __init__(self, id, titulo, autor, paginas):
-        super().__init__(id, titulo)
+    def __init__(self, titulo, autor, paginas):
+        super().__init__(titulo)
         self.autor = autor
         self.paginas = paginas
 
@@ -31,8 +34,8 @@ class Libro(Material):
 
 class Revista(Material):
 
-    def __init__(self, id, titulo, edicion):
-        super().__init__(id, titulo)
+    def __init__(self,titulo, edicion):
+        super().__init__(titulo)
         self.edicion = edicion
 
     def __str__(self):
