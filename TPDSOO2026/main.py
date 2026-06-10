@@ -8,7 +8,18 @@ from biblioteca import Biblioteca
 
 def menu():
     biblioteca = Biblioteca("----Biblioteca DSOO----")
-
+    #Datos de ejemplo para probar el sistema
+    biblioteca.agregar_material(Libro("L001", "El Aleph", "Jorge Luis Borges", 150))
+    biblioteca.agregar_material(Libro("L002", "Rayuela", "Julio Cortázar", 600))
+    biblioteca.agregar_material(Libro("L003", "El principito", "Saint-Exuperí", 110))
+    biblioteca.agregar_material(Libro("L004", "Cien años de soledad", "Gabriel García Marquez", 470))
+    biblioteca.agregar_material(Libro("L005", "Don Quijote de la Mancha", "Jorge Luis Borges", 1000))
+    biblioteca.agregar_material(Revista("R001", "National Geographic", "Marzo 2025"))
+    biblioteca.agregar_material(Revista("R002", "Revista Gente", "Abril 2025"))
+    biblioteca.agregar_material(Revista("R003", "Revista Caras", "Julio 2025"))
+    biblioteca.registrar_socio(Socio("S01", "Ana Gómez"))
+    biblioteca.registrar_socio(Socio("S02", "Carlos Pérez"))
+    biblioteca.registrar_socio(Socio("S03", "Juan Pérez"))
 
     opciones = {
         "1":  "Agregar Libro",
