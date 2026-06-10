@@ -17,9 +17,9 @@ def menu():
     biblioteca.agregar_material(Revista( "National Geographic", "Marzo 2025"))
     biblioteca.agregar_material(Revista( "Revista Gente", "Abril 2025"))
     biblioteca.agregar_material(Revista( "Revista Caras", "Julio 2025"))
-    biblioteca.registrar_socio(Socio( "Ana Gómez"))
-    biblioteca.registrar_socio(Socio( "Carlos Pérez"))
-    biblioteca.registrar_socio(Socio( "Juan Pérez"))
+    biblioteca.registrar_socio(Socio( "Ana Gómez", 12345678))
+    biblioteca.registrar_socio(Socio( "Carlos Pérez",23456789))
+    biblioteca.registrar_socio(Socio( "Juan Pérez",34567891))
 
     opciones = {
         "1":  "Agregar Libro",
@@ -66,7 +66,8 @@ def menu():
         elif opcion == "3":
             print("\n  -- Nuevo Socio --")
             nombre = input("  Nombre: ").strip()
-            biblioteca.registrar_socio(Socio(nombre))
+            dni = input( " ingrese DNI: ").strip()
+            biblioteca.registrar_socio(Socio(nombre, dni))
 
         elif opcion == "4":
             biblioteca.mostrar_catalogo()
@@ -83,13 +84,13 @@ def menu():
 
         elif opcion == "6":
             print("\n  -- Registrar Préstamo --")
-            numero_socio    = input("  N° de socio: ").strip()
-            id_material = input("  Código del material: ").strip()
+            numero_socio    = int(input("  N° de socio: ").strip())
+            id_material = int(input("  Código del material: ").strip())
             biblioteca.prestar_material(numero_socio, id_material)
 
         elif opcion == "7":
             print("\n  -- Registrar Devolución --")
-            id_material = input("  Código del material: ").strip()
+            id_material = int(input("  Código del material: ").strip())
             biblioteca.devolver_material(id_material)
 
         elif opcion == "8":
@@ -111,7 +112,7 @@ def menu():
                 print("  No hay préstamos vencidos.")
 
         elif opcion == "10":
-            numero = input("\n  N° de socio: ").strip()
+            numero = int(input("\n  N° de socio: ").strip())
             socio = biblioteca.socios.get(numero)
             if not socio:
                 print(" Socio no encontrado.")
